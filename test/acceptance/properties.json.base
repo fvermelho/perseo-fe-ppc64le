@@ -1,0 +1,33 @@
+{
+    "environment": {
+        "name": "orion_cep",
+        "logs_path": "logs"
+    },
+    "CEP": {
+        "host": "localhost",
+        "port": "9090",
+        "service": "unknownT",
+        "service_path": "/",
+        "log_level": "DEBUG"
+    },
+    "CEP-CORE": {
+        "host": "localhost",
+        "port": "8080"
+    },
+    "Mock": {
+        "host": "localhost",
+        "port": "9998"
+    },
+
+    "MongoDB": {
+        "host": "localhost",
+        "port": "27017",
+        "database": "cep"
+    },
+    "MongoOrion": {
+        "mongo_host": "localhost",
+        "mongo_port": "27017",
+        "mongo_database": "orion",
+        "mongo_collection": "entities"
+    }
+}

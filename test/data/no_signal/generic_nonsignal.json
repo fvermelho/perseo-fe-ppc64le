@@ -1,0 +1,81 @@
+{
+    "name": "NSR1",
+    "active": 1,
+    "cards": [
+        {
+            "id": "card_6",
+            "type": "SensorCard",
+            "model": "ModeloTemperatura",
+            "sensorData": {
+                "measureName": "",
+                "phenomenonApp": "",
+                "phenomenon": "",
+                "dataType": "Text",
+                "uom": ""
+            },
+            "configData": {
+
+            },
+            "connectedTo": [
+                "card_11"
+            ],
+            "conditionList": [
+                {
+                    "scope": "XPATH",
+                    "not": false,
+                    "operator": "MATCH",
+                    "parameterName": "id",
+                    "parameterValue": "^.*"
+                }
+            ]
+        },
+        {
+            "id": "card_11",
+            "type": "SensorCard",
+            "model": "NoSensorSignal",
+            "sensorData": {
+                "measureName": "at",
+                "phenomenonApp": "",
+                "phenomenon": "",
+                "dataType": "",
+                "uom": ""
+            },
+            "timeData": {
+                "interval": "1",
+                "repeat": "0",
+                "context": "ASSET"
+            },
+            "conditionList": [
+                {
+                    "scope": "LAST_MEASURE",
+                    "not": false,
+                    "operator": "GREATER_THAN",
+                    "parameterValue": 900
+                }
+            ],
+            "connectedTo": [
+                "card_12"
+            ]
+        },
+        {
+            "type": "ActionCard",
+            "actionData": {
+                "name": "sms",
+                "type": "SendSmsMibAction",
+                "userParams": [
+                    {
+                        "name": "sms.to",
+                        "value": "12345678"
+                    },
+                    {
+                        "name": "sms.message",
+                        "value": "${device.asset.UserProps.threshold.major} message"
+                    }
+                ]
+            },
+            "id": "card_12",
+            "connectedTo": [ ]
+        }
+    ]
+}
+

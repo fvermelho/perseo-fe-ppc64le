@@ -1,0 +1,8 @@
+# test
+.idea/
+*.pyc
+testreport/
+old/
+jenkins/
+config.js
+properties.json
